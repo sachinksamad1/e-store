@@ -1,35 +1,37 @@
-<div class="w-full shadow-lg shadow-gray-500/50 bg-gray-900">
-    <div class="flex items-center">
-        <div class="text-white ml-2 p-3 w-[23%]">
-            <h1 class="text-xl font-bold">eStore</h1>
-        </div>
-        <div class="p-0 my-4 w-[50%] h-[2.5rem] bg-white flex items-center rounded-lg overflow-hidden">
-            <select class="w-auto bg-gray-300 h-full border-none font-semibold px-2 pr-5">
-                <option>Men</option>
-                <option>Women</option>
-                <option>Kids</option>
-            </select>
-            <input class="w-[90%] h-full inline-block border-none outline-none px-3" placeholder="Search..." >  
-            <button class="w-[10%] h-10 border-none bg-gray-300 flex justify-center items-center">
-                <fa-icon [icon]="faSearch" class="text-gray-600"></fa-icon>
-            </button>    
-        </div>
+<div class="w-full max-w-full min-h-[5rem] shadow-[5px_5px_20px_gray] bg-gray-900 flex items-center px-4">
+    <div class="text-white px-3 w-[23%] flex items-center">
+        <h1 class="text-3xl font-bold">eStore</h1>
+    </div>
 
-        <div class="flex items-center w-[27%] gap-6 justify-end h-full">
-            <div class="flex items-center gap-2 text-white">
-                <fa-icon [icon]="faUserCircle" class="text-[1.3rem]"></fa-icon>
-                <h5>
-                    <a href="#" class="text-white no-underline hover:underline">Sign in</a>
-                </h5>
-                <span>/</span>
-                <h5>
-                    <a href="#" class="text-white no-underline hover:underline">Register</a>
-                </h5>
-            </div>
-            <div class="flex items-center gap-4 text-white text-[1.3rem]">
-                <fa-icon [icon]="faHeart" class="text-[1.3rem] text-white"></fa-icon>
-                <fa-icon [icon]="faShoppingCart" class="text-[1.3rem] text-white"></fa-icon>
-            </div>
+    <div class="p-0 w-[50%] h-[2.5rem] bg-white flex items-center rounded-md overflow-hidden">
+        <select class="w-auto bg-gray-300 h-full border-none font-semibold px-2 pr-5">
+            <option>Men</option>
+            <option>Women</option>
+            <option>Kids</option>
+        </select>
+        <input class="w-full h-full border-none outline-none px-3" placeholder="Search..." />
+        <button class="w-[10%] h-full border-none bg-gray-300 flex justify-center items-center">
+            <fa-icon [icon]="faSearch"></fa-icon>
+        </button>
+    </div>
+
+    <div class="flex items-center w-[27%] gap-6 justify-end h-full">
+        <div class="flex items-center gap-2 text-white">
+            <fa-icon [icon]="faUserCircle" class="text-[1.3em]"></fa-icon>
+            <h5>
+                <a href="#"
+                    class="relative text-white px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900">Sign
+                    in</a>
+            </h5>
+            <span>/</span>
+            <h5>
+                <a href="#"
+                    class="relative text-white px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900">Register</a>
+            </h5>
+        </div>
+        <div class="flex items-center gap-4 text-white text-[1.3em]">
+            <fa-icon [icon]="faHeart"></fa-icon>
+            <fa-icon [icon]="faShoppingCart"></fa-icon>
         </div>
     </div>
 </div>
