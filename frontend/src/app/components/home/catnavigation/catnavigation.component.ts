@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Category } from '../types/category';
+import { CategoryService } from '../services/category.service';
 
 @Component({
   selector: 'app-catnavigation',
@@ -6,4 +8,13 @@ import { Component } from '@angular/core';
   templateUrl: './catnavigation.component.html',
   styleUrl: './catnavigation.component.css',
 })
-export class CatnavigationComponent {}
+export class CatnavigationComponent {
+  categories: Category[] = [];
+
+  constructor(categoryService: CategoryService){
+    categoryService.getAllCategories().subscribe(categories =>
+      this.categories = categories.filter(
+        (category) => category.parent_category_id === null
+      ))
+  }
+}

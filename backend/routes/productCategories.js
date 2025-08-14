@@ -5,7 +5,7 @@ const productCategories = express.Router();
 const pool = mysql.createPool({
   host: "localhost",
   user: "root",
-  password: "",
+  password: "HelloWorld",
   database: "estore",
   port: 3306,
   multipleStatements: true,
