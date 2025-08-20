@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, output } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 import { Category } from '../types/category';
@@ -13,18 +13,10 @@ import { CategoriesStoreItem } from '../services/category/categories.storeItem';
 })
 export class SidenavigationComponent {
   faAngleDown = faAngleDown;
-  // categories: Category[] = [];
-
-  // constructor(categoryService: CategoryService) {
-  //   categoryService.getAllCategories().subscribe((categories) => {
-  //     this.categories = categories;
-  //   });
-  // }
-
   private categoriesStore = inject(CategoriesStoreItem);
 
   readonly categories = this.categoriesStore.categories;
-
+  readonly subCategoryClicked = output<number>();
 
   getCategories(parentCategoryId?: number): Category[] {
     return this.categories().filter((category) =>
@@ -32,5 +24,9 @@ export class SidenavigationComponent {
         ? category.parent_category_id === parentCategoryId
         : category.parent_category_id === null
     );
+  }
+
+  onSubCategoryClick(subCategory: Category): void {
+    this.subCategoryClicked.emit(subCategory.id);
   }
 }
