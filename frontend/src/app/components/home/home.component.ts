@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from './header/header.component';
 import { CatnavigationComponent } from './catnavigation/catnavigation.component';
 import { SidenavigationComponent } from './sidenavigation/sidenavigation.component';
@@ -21,15 +21,20 @@ import { ProductsService } from './services/product/products.service';
   providers: [CategoryService, CategoriesStoreItem, ProductsStoreItem, ProductsService],
 })
 export class HomeComponent {
-  constructor (
+  constructor(
     private categoriesStoreItem: CategoriesStoreItem,
     private productsStoreItem: ProductsStoreItem
-  
-  ){
+  ) {
     this.categoriesStoreItem.loadCategories();
     this.productsStoreItem.loadProducts();
   }
+
+  // ngOnInit(): void {
+  //   this.categoriesStoreItem.loadCategories();
+  //   this.productsStoreItem.loadProducts();
+  // }
+
   onSelectSubCategory(subCategoryId: number): void {
-    this.productsStoreItem.loadProducts({ subCategory: subCategoryId });
+    this.productsStoreItem.loadProducts({ subcategoryid: subCategoryId });
   }
 }

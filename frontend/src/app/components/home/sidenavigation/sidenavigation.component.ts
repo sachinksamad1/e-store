@@ -13,9 +13,9 @@ import { CategoriesStoreItem } from '../services/category/categories.storeItem';
 })
 export class SidenavigationComponent {
   faAngleDown = faAngleDown;
-  private categoriesStore = inject(CategoriesStoreItem);
+  private categoryStore = inject(CategoriesStoreItem);
 
-  readonly categories = this.categoriesStore.categories;
+  readonly categories = this.categoryStore.categories;
   readonly subCategoryClicked = output<number>();
 
   getCategories(parentCategoryId?: number): Category[] {
@@ -25,7 +25,6 @@ export class SidenavigationComponent {
         : category.parent_category_id === null
     );
   }
-
   onSubCategoryClick(subCategory: Category): void {
     this.subCategoryClicked.emit(subCategory.id);
   }

@@ -26,7 +26,11 @@
           @for (subCategory of getCategories(mainCategory.id); track
           subCategory.id) {
           <li class="text-center">
-            <a (click)="onSubCategoryClick(subCategory)" class="link-hover cursor-pointer">{{ subCategory.category }}</a>
+            <a
+              (click)="onSubCategoryClick(subCategory)"
+              class="link-hover cursor-pointer"
+              >{{ subCategory.category }}</a
+            >
           </li>
           }
         </ul>
