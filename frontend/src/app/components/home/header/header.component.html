@@ -1,20 +1,24 @@
 <div
-  class="w-full max-w-full min-h-[5rem] shadow-[5px_5px_20px_gray] bg-gray-900 flex items-center px-4"
+  class="w-full min-h-[5rem] shadow-[5px_5px_20px_gray] bg-gray-900 flex flex-wrap md:flex-nowrap items-center px-4 gap-y-2"
 >
-  <div class="text-white px-3 w-[23%] flex items-center">
-    <h1 class="text-3xl font-bold">eStore</h1>
+  <!-- Logo -->
+  <div class="text-white px-3 md:w-[23%] w-full flex items-center">
+    <h1 class="text-3xl font-bold cursor-pointer">
+      <a href="/home" class="cursor-pointer">eStore</a>
+    </h1>
   </div>
 
+  <!-- Search Bar -->
   <div
-    class="p-0 w-[50%] h-[2.5rem] bg-white flex items-center rounded-md overflow-hidden"
+    class="w-full md:w-[50%] h-[2.5rem] bg-white flex items-center rounded-md overflow-hidden"
   >
     <select
-    #categoryOptions
-      class="w-auto bg-gray-300 h-full border-none font-semibold px-2 pr-5"
+      #categoryOptions
+      class="bg-gray-300 h-full border-none font-semibold px-2 pr-5"
     >
-    @for (category of categoryStore.topLevelCategories(); track $index) {
+      @for (category of categoryStore.topLevelCategories(); track $index) {
       <option [value]="category.id">{{ category.category }}</option>
-    }
+      }
     </select>
     <input
       #keyword
@@ -23,33 +27,31 @@
     />
     <button
       (click)="onClickSearch(keyword.value, categoryOptions.value)"
-      class="w-[10%] h-full border-none bg-gray-300 flex justify-center items-center"
+      class="w-[10%] min-w-[2.5rem] h-full border-none bg-gray-300 flex justify-center items-center cursor-pointer"
     >
-      <fa-icon [icon]="faSearch"></fa-icon>
+      <fa-icon [icon]="faSearch" class="cursor-pointer"></fa-icon>
     </button>
   </div>
 
-  <div class="flex items-center w-[27%] gap-6 justify-end h-full">
-    <div class="flex items-center gap-2 text-white">
+  <!-- Auth & Cart -->
+  <div
+    class="w-full md:w-[27%] flex items-center justify-between md:justify-end gap-4 text-white text-lg"
+  >
+    <div class="flex items-center gap-2">
       <fa-icon [icon]="faUserCircle" class="text-[1.3em]"></fa-icon>
-      <h5>
-        <a
-          href="#"
-          class="relative text-white px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900"
-          >Sign in</a
-        >
-      </h5>
+      <a
+        href="#"
+        class="px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900"
+        >Sign in</a
+      >
       <span>/</span>
-      <h5>
-        <a
-          href="#"
-          class="relative text-white px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900"
-          >Register</a
-        >
-      </h5>
+      <a
+        href="#"
+        class="px-1 py-1 rounded transition-all duration-300 hover:bg-white hover:text-gray-900"
+        >Register</a
+      >
     </div>
-    <div class="flex items-center gap-4 text-white text-[1.3em]">
-      <!-- <fa-icon [icon]="faHeart"></fa-icon> -->
+    <div class="flex items-center text-[1.3em]">
       <fa-icon [icon]="faShoppingCart"></fa-icon>
     </div>
   </div>

@@ -21,7 +21,7 @@ export class HeaderComponent {
 
   readonly searchClicked = output<SearchKeyword>();
 
-  constructor(public categoryStore: CategoriesStoreItem) { }
+  constructor(public categoryStore: CategoriesStoreItem) {}
 
   onClickSearch(keyword: string, categoryId: string): void {
     this.searchClicked.emit({

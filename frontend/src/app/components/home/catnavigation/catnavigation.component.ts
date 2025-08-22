@@ -1,8 +1,6 @@
 import { Component, output } from '@angular/core';
-import { Category } from '../types/category';
-// import { CategoryService } from '../services/category.service';
 import { CategoriesStoreItem } from '../services/category/categories.storeItem';
-
+import { Category } from '../types/category';
 
 @Component({
   selector: 'app-catnavigation',
@@ -12,7 +10,7 @@ import { CategoriesStoreItem } from '../services/category/categories.storeItem';
 })
 export class CatnavigationComponent {
   readonly categoryClicked = output<number>();
-  constructor(public categoryStore: CategoriesStoreItem){}
+  constructor(public categoryStore: CategoriesStoreItem) {}
 
   onCategoryClick(mainCategory: Category) {
     this.categoryClicked.emit(mainCategory.id);

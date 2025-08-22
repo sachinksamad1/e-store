@@ -25,7 +25,6 @@ export class ProductsService {
       params = params.set('keyword', filters.keyword);
     }
 
-
     return this.http.get<Product[]>(this.baseURL, { params });
   }
 }
