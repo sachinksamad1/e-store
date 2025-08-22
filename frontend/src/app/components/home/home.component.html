@@ -1,14 +1,7 @@
-<app-header (seachClicked)="onSearchKeyword($event)"></app-header>
-<app-catnavigation (categoryClicked)="onSelectCategory($event)"></app-catnavigation>
+<app-header (searchClicked)="onSearchKeyword($event)"></app-header>
 
-<div class="w-full px-4">
-  <div class="flex flex-wrap">
-    <div class="w-full sm:w-1/3 md:w-1/4 lg:w-1/6 xl:w-1/6 self-start">
-      <app-sidenavigation (subCategoryClicked)="onSelectSubCategory($event)"></app-sidenavigation>
-    </div>
+<app-catnavigation
+  (categoryClicked)="onSelectCategory($event)">
+</app-catnavigation>
 
-    <div class="w-full sm:w-2/3 md:w-3/4 lg:w-5/6 xl:w-5/6">
-      <app-products></app-products>
-    </div>
-  </div>
-</div>
+<router-outlet></router-outlet>

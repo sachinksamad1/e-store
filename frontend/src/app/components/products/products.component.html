@@ -1,5 +1,14 @@
 <div class="flex flex-wrap justify-evenly">
-  @for (product of productsStoreItem.products(); track product.id) {
+  @if (productsStoreItem.products().length === 0) {
+  <div
+    class="text-center w-full mt-10 text-[50px] text-gray-500 font-medium pr-[180px]"
+  >
+    <p>
+      <fa-icon [icon]="faBoxOpen" class="text-[60px]"></fa-icon>
+      No products found
+    </p>
+  </div>
+  }@else { @for (product of productsStoreItem.products(); track product.id) {
   <div class="mx-4 p-3 mt-4 mb-4 flex flex-col rounded-lg shadow-md">
     <div class="overflow-hidden rounded-md aspect-[3/4] bg-gray-100">
       <img
@@ -23,5 +32,6 @@
       }
     </div>
   </div>
-  }
+  } 
+}
 </div>

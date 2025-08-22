@@ -3,7 +3,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {
   faSearch,
   faUserCircle,
-  // faHeart,
   faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 import { CategoriesStoreItem } from '../services/category/categories.storeItem';
@@ -20,12 +19,13 @@ export class HeaderComponent {
   faUserCircle = faUserCircle;
   faShoppingCart = faShoppingCart;
 
-  readonly seachClicked = output<SearchKeyword>();
+  readonly searchClicked = output<SearchKeyword>();
 
-  constructor(public categoryStore: CategoriesStoreItem){}
+  constructor(public categoryStore: CategoriesStoreItem) { }
 
-  onClickSearch(keyword: string, categoryId: string): void{
-    this.seachClicked.emit({categoryId: parseInt(categoryId),
+  onClickSearch(keyword: string, categoryId: string): void {
+    this.searchClicked.emit({
+      categoryId: parseInt(categoryId),
       keyword: keyword,
     });
   }
