@@ -5,6 +5,7 @@ const pool = require("../shared/pool");
 products.get("/", (req, res) => {
   const mainCategoryId = req.query.maincategoryid;
   const subCategoryId = req.query.subcategoryid;
+  const keyword = req.query.keyword;
 
   let query = "select * from products";
   let queryParams = [];
@@ -15,6 +16,13 @@ products.get("/", (req, res) => {
   } else if (subCategoryId) {
     query += " where category_id = ?";
     queryParams.push(subCategoryId);
+
+    if (keyword) {
+      query += " and name like ?";
+      queryParams.push(`%${keyword}%`);
+    }
+  } else if (keyword) {
+    query += `AND keywords LIKE '%${keyword}%'`;
   }
 
   pool.query(query, queryParams, (error, products) => {
